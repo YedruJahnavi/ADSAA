@@ -1,13 +1,11 @@
 import java.util.*;
 class BFS_AL
 {
-	static void bfs(List<List<Integer>> adj, int s)
-	{
-		Queue<Integer> q = new LinkedList<>();
+	static void bfs(List<List<Integer>> adj, int s){
 		boolean[] visited = new boolean[adj.size()];
-		visited[s] = true;
+		Queue<Integer> q = new LinkedList<>();
 		q.add(s);
-		// Iterate over the queue
+		visited[s] = true;
 		while (!q.isEmpty())
 		{
 			int curr = q.poll();
@@ -15,9 +13,9 @@ class BFS_AL
 			for (int x : adj.get(curr))
 			{
 				if (!visited[x])
-				{
-					visited[x] = true;
+		        {
 					q.add(x);
+					visited[x] = true;
 				}
 			}
 		}
@@ -27,8 +25,7 @@ class BFS_AL
 		adj.get(u).add(v);
 		adj.get(v).add(u); // Undirected graph
 	}
-	public static void main(String[] args)
-	{
+	public static void main(String[] args){
 		int V = 5;
 		List<List<Integer>> adj = new ArrayList<>(V);
 		for (int i = 0; i < V; i++)
@@ -44,10 +41,3 @@ class BFS_AL
 		bfs(adj, 4);
 	}
 }
-
-
-output
-	BFS starting from 0:
-	4 1 2 0 3 
-	
-	
